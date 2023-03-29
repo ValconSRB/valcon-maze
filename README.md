@@ -1,1 +1,1 @@
-# valcon-maze
+# the-maze-vanillajs

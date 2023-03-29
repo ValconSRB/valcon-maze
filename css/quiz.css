@@ -1,0 +1,160 @@
+/* Quiz style */
+
+div#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  cursor: pointer;
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#lang-icon {
+  font-size: 25px;
+}
+
+#question {
+  margin: 10px auto 25px;
+  font-size: 18px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  border: 1px solid var(--button-border);
+  background-color: var(--button-background);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #eff5f5;
+  outline: none;
+  font-size: 18px;
+}
+
+.btn:hover {
+  border-color: var(--wall-color);
+}
+
+.btn.correct {
+  background-color: var(--button-success);
+  /* color: black; */
+}
+
+.btn.wrong {
+  background-color: var(--button-wrong);
+}
+
+/* congratulation modal  */
+#modal-container .modal-container-text {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: baseline;
+  margin: 20px auto;
+  font-size: 18px;
+  flex-wrap: wrap;
+}
+
+#modal-container .modal-container-text .grade-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 20px auto;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+#modal-container .modal-container-text .questions-counter {
+  margin: 0 6px;
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.start-btn,
+.next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
+.slide-in-blurred-top {
+  -webkit-animation: slide-in-blurred-top 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: slide-in-blurred-top 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@-webkit-keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scaleY(2.5) scaleX(0.2);
+    transform: translate(-50%, -50%) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scaleY(1) scaleX(1);
+    transform: translate(-50%, -50%) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
