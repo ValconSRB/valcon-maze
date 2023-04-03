@@ -107,6 +107,7 @@ function congratulationModal() {
       break;
     case 5:
       gradeText += "Kidaš 💪";
+      break;
     default:
       return;
   }
