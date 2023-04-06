@@ -5,6 +5,7 @@ import { checkInputs } from "./form-data.js";
 
 const formContainer = document.querySelector(".onboarding-form");
 const form = document.getElementById("form");
+const submitButton = document.querySelector("#submit-button")
 const submitButtonContent = document.querySelector(".form-btn div");
 const gameExplanationOverlay = document.getElementById(
   "game-explanation-overlay"
@@ -118,6 +119,7 @@ form.addEventListener("submit", async (event) => {
   let req;
 
   if (checkInputs()) {
+    submitButton.setAttribute("disabled", "true");
     submitButtonContent.classList.add("loading");
     data = getData(form);
     sessionStorage.setItem("userEmail", data.email);
