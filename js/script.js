@@ -5,7 +5,7 @@ import { checkInputs } from "./form-data.js";
 
 const formContainer = document.querySelector(".onboarding-form");
 const form = document.getElementById("form");
-const submitButton = document.querySelector("#submit-button")
+const submitButton = document.querySelector("#submit-button");
 const submitButtonContent = document.querySelector(".form-btn div");
 const gameExplanationOverlay = document.getElementById(
   "game-explanation-overlay"
@@ -14,6 +14,7 @@ const gameExplanationOverlay = document.getElementById(
 const failureModal = document.getElementById("failure-modal");
 const explanationButton = document.querySelector(".explanation-button");
 const timerElement = document.getElementById("timer");
+const timeEl = document.getElementById("time");
 
 const gameExplanationModal = document.getElementById("game-modal");
 
@@ -164,37 +165,32 @@ export async function clearStateOnFinishAndReload() {
   }
 }
 
-let secondsRemaining = 120;
-
+let timeLimit = 120;
+let timeLeft = timeLimit;
+let finishTime;
 function timerUpdate() {
-  let startTime = 120;
-  let timeLeft;
-  let finishTime;
+  // Decrement the seconds remaining
+  timeLeft--;
 
   // Convert seconds to minutes and seconds
-  const minutes = Math.floor(secondsRemaining / 60);
-  const seconds = secondsRemaining % 60;
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
 
   // Update the timer display
-  timerElement.textContent = `${minutes}:${seconds
+  timeEl.textContent = `${minutes.toString().padStart(2, "0")}:${seconds
     .toString()
     .padStart(2, "0")}`;
 
-  // Decrement the seconds remaining
-  secondsRemaining--;
   // If time is up, stop the timer
-  timeLeft = secondsRemaining;
-  finishTime = startTime - timeLeft;
+  finishTime = timeLimit - timeLeft;
   globalTimeLeftInQuiz = finishTime;
 
-  if (secondsRemaining < 0) {
-    showFailureModal();
+  if (timeLeft === 0) {
     clearInterval(timerInterval);
-    // TODO: Handle end of quiz
+    showFailureModal();
   }
   if (goalsLeft === 1) {
-    timeLeft = secondsRemaining;
-    finishTime = startTime - timeLeft;
+    globalTimeLeftInQuiz = finishTime;
     clearInterval(timerInterval);
   }
 }
