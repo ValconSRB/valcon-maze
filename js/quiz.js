@@ -301,11 +301,11 @@ const questions = [
     question: `Šta će biti ispisano na izlazu?
         var zero = 0;
         try{
-            Console.WriteLine(42 / 0.0);
-            Console.WriteLine(42.0 / 0);
-            Console.WriteLine(42 / zero);
-        }catch (DivideByZeroException){
-            Console.WriteLine(“DivideByZeroException”);
+            System.out.println(42 / 0.0);
+            System.out.println(42.0 / 0);
+            System.out.println(42 / zero);
+        }catch (ArithmeticException e){
+            System.out.println("DivideByZeroException");
         }`,
     answers: [
       {
