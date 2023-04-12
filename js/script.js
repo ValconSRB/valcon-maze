@@ -1,4 +1,4 @@
-import { startQuiz, returnScore } from "./quiz.js";
+import { openQuiz, returnScore, initQuestions } from "./quiz.js";
 import Maze from "./maze.js";
 import { insertData, updateData } from "./db.js";
 import { checkInputs } from "./form-data.js";
@@ -74,7 +74,7 @@ if (!isVisited) {
 } else {
   formContainer.style.display = "none";
   // formContainer.classList.add("exit-animation");
-  new Maze("game-container-1", levels[0], startQuiz, goalsLength);
+  new Maze("game-container-1", levels[0], openQuiz, goalsLength);
 }
 
 let timerInterval;
@@ -129,29 +129,14 @@ form.addEventListener("submit", async (event) => {
 
   if (req?.created) {
     formContainer.classList.add("exit-animation");
-    new Maze("game-container-1", levels[0], startQuiz, goalsLength);
+    new Maze("game-container-1", levels[0], openQuiz, goalsLength);
     submitButtonContent.classList.remove("loading");
   }
 });
 
-let requestUpdate;
-async function clearStateAndReload() {
-  const score = returnScore();
-  requestUpdate = await updateData({
-    email: sessionStorage.getItem("userEmail") || "",
-    score: score,
-    requiredTime: globalTimeLeftInQuiz,
-  });
-
-  if (requestUpdate?.updated) {
-    sessionStorage.clear();
-    window.location.reload();
-  }
-}
-
 export async function clearStateOnFinishAndReload() {
   const score = returnScore();
-  requestUpdate = await updateData({
+  let requestUpdate = await updateData({
     email: sessionStorage.getItem("userEmail") || "",
     score: score,
     requiredTime: globalTimeLeftInQuiz,
@@ -197,6 +182,7 @@ function timerUpdate() {
 
 function startButtonHandler() {
   showTimer();
+  initQuestions();
   // remove modal and overlay
   showExplanation(true);
   timerInterval = setInterval(timerUpdate, 1000);

@@ -1,5 +1,5 @@
 export default class Maze {
-  constructor(id, level, initQuiz, returnedGoals) {
+  constructor(id, level, openQuiz, returnedGoals) {
     this.el = document.getElementById(id);
     this.tileTypes = ["floor", "wall"];
     this.level = level;
@@ -9,7 +9,7 @@ export default class Maze {
     this.player = { ...level.player };
     this.goals = [...level.goals];
     this.player.el = null;
-    this.initQuiz = initQuiz;
+    this.openQuiz = openQuiz;
     this.overlay = document.getElementById("overlay");
     this.keyCodes = ["ArrowLeft", "ArrowRight", "ArrowDown", "ArrowUp"];
     this.isQuizOpen = false;
@@ -30,8 +30,8 @@ export default class Maze {
   populateMap() {
     this.el.className = `game-container ${this.theme}`;
     let tiles = document.getElementById("tiles");
-    for (var y = 0; y < this.map.length; ++y) {
-      for (var x = 0; x < this.map[y].length; ++x) {
+    for (let y = 0; y < this.map.length; ++y) {
+      for (let x = 0; x < this.map[y].length; ++x) {
         // current tile
         let tileCode = this.map[y][x];
         let tileType = this.tileTypes[tileCode];
@@ -209,7 +209,7 @@ export default class Maze {
     );
 
     if (foundCoordinates) {
-      this.initQuiz();
+      this.openQuiz();
       this.isQuizOpen = true;
     } else {
       this.isQuizOpen = false;

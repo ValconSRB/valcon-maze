@@ -1,7 +1,5 @@
 import { clearStateOnFinishAndReload } from "./script.js";
 
-const startButton = document.getElementById("start-btn");
-const nextButton = document.getElementById("next-btn");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const overlay = document.getElementById("overlay");
@@ -13,44 +11,32 @@ const gradeContainer = congratulationsModal.querySelector(".grade-container");
 const preContainer = document.querySelector("pre");
 const codeContainer = document.querySelector("code");
 
-let shuffledQuestions, currentQuestionIndex, timeOutID;
+let timeOutID;
 let correctAnswers = 0;
+let shuffledQuestions = [];
+let currentQuestionIndex = 0;
 let numberOfQuestions = 0;
 
-nextButton.addEventListener("click", () => {
-  currentQuestionIndex++;
-  setNextQuestion(this);
-});
+export function initQuestions() {
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 5);
+}
 
 export function returnScore() {
   return correctAnswers;
 }
 
-export function startQuiz() {
+export function openQuiz() {
   clearTimeout(timeOutID);
   overlay.style.display = "flex";
-  startGame(this);
-}
-
-export function startGame(mazeInstance) {
-  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-  currentQuestionIndex = 0;
-  setNextQuestion(mazeInstance);
-}
-
-let askedQuestions = [];
-function selectQuestion(questions) {
-  var question = null;
-  do {
-    question = questions[Math.floor(Math.random() * questions.length)];
-  } while (askedQuestions.includes(question.id));
-  askedQuestions.push(question.id);
-  return question;
-}
-function setNextQuestion(mazeInstance) {
   numberOfQuestions++;
   resetState();
-  showQuestion(selectQuestion(shuffledQuestions), mazeInstance);
+  showQuestion(selectQuestion(), this);
+}
+
+function selectQuestion() {
+  const question = shuffledQuestions[currentQuestionIndex];
+  currentQuestionIndex++;
+  return question;
 }
 
 function showLangIcon(answer) {
@@ -112,7 +98,6 @@ function showQuestion(question, mazeInstance) {
 
 function resetState() {
   clearStatusClass(document.body);
-  nextButton.classList.add("hide");
   icon.classList = "fab";
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
@@ -158,18 +143,11 @@ function selectAnswer(e, mazeInstance) {
     setStatusClass(button, button.dataset.correct);
   });
   if (correct) correctAnswers++;
-
-  if (shuffledQuestions.length > currentQuestionIndex) {
-    nextButton.classList.add("hide");
-    timeOutID = setTimeout(function () {
-      overlay.style.display = "none";
-    }, 800);
-    mazeInstance.quizValue = false;
-    mazeInstance.removeGoal();
-  } else {
-    startButton.innerText = "Restart";
-    startButton.classList.remove("hide");
-  }
+  timeOutID = setTimeout(function () {
+    overlay.style.display = "none";
+  }, 800);
+  mazeInstance.quizValue = false;
+  mazeInstance.removeGoal();
 
   if (mazeInstance.checkForFinish()) {
     congratulationModal();
