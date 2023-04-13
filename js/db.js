@@ -1,51 +1,45 @@
-// new endpoint for => boris94kg@gmail.com
-const API = "https://sheetdb.io/api/v1/a3fgn1d8hh50u";
-
-const OLD_API = "https://sheetdb.io/api/v1/089lzmxl5ymnb";
+const API_NAME = "https://api.sheetson.com/v2/sheets/rezultati";
+const API_KEY = "WR9UcxpITFgHqjfd6TBpbhlEpPmoR8OC6gPJcEiad4iKFcYjvhbVKeMtduQ";
+const SHEET_ID = "16TG_KiMRpdecI8G7RUsfBi8BUIEWRyI6_vrZa_cBp6M";
 
 export const insertData = async (data) => {
   try {
-    const result = await (
-      await fetch(API, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: [
-            {
-              id: "INCREMENT",
-              date: "DATETIME",
-              ...data,
-            },
-          ],
-        }),
-      })
-    ).json();
+    const result = await fetch(API_NAME, {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + API_KEY,
+        "X-Spreadsheet-Id": SHEET_ID,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        date: new Date(Date.now()).toLocaleString()
+      }),
+    });
     sessionStorage.setItem("visited", JSON.stringify("true"));
-    return result;
+    return result.json();
   } catch (error) {
     console.log(error);
   }
 };
 
 export const updateData = async (data) => {
+  const row = sessionStorage.getItem("row");
   try {
-    const result = await fetch(`${API}/email/${data.email}`, {
-      method: "PATCH",
+    const result = await fetch(`${API_NAME}/${row}`, {
+      method: "PUT",
       headers: {
-        Accept: "application/json",
+        "Authorization": "Bearer " + API_KEY,
+        "X-Spreadsheet-Id": SHEET_ID,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        data: {
-          score: data.score,
-          requiredTime: data.requiredTime,
-        },
+        score: data.score,
+        requiredTime: data.requiredTime,
       }),
-    }).then((response) => response.json());
-    return result;
+    });
+    return result.json();
   } catch (error) {
     console.log(error);
   }

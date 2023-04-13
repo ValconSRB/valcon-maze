@@ -123,11 +123,11 @@ form.addEventListener("submit", async (event) => {
     submitButton.setAttribute("disabled", "true");
     submitButtonContent.classList.add("loading");
     data = getData(form);
-    sessionStorage.setItem("userEmail", data.email);
     req = await insertData({ ...data });
   }
 
-  if (req?.created) {
+  if (req) {
+    sessionStorage.setItem("row", req.rowIndex);
     formContainer.classList.add("exit-animation");
     new Maze("game-container-1", levels[0], openQuiz, goalsLength);
     submitButtonContent.classList.remove("loading");
@@ -136,13 +136,12 @@ form.addEventListener("submit", async (event) => {
 
 export async function clearStateOnFinishAndReload() {
   const score = returnScore();
-  let requestUpdate = await updateData({
-    email: sessionStorage.getItem("userEmail") || "",
+  const requestUpdate = await updateData({
     score: score,
     requiredTime: globalTimeLeftInQuiz,
   });
 
-  if (requestUpdate?.updated) {
+  if (requestUpdate) {
     setTimeout(() => {
       sessionStorage.clear();
       window.location.reload();
