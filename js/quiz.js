@@ -69,7 +69,6 @@ function showLangIcon(answer) {
 function showCodeQuestion(question) {
   // clear codeContainer class
   preContainer.classList = "";
-  debugger;
   switch (question?.programmingLang) {
     case "javascript":
       preContainer.classList.add("language-javascript");
