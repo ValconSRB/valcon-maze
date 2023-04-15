@@ -10,6 +10,8 @@ const congratulationsModal = document.getElementById("modal-container");
 const questionCounter =
   congratulationsModal.querySelector(".questions-counter");
 const gradeContainer = congratulationsModal.querySelector(".grade-container");
+const preContainer = document.querySelector("pre");
+const codeContainer = document.querySelector("code");
 
 let shuffledQuestions, currentQuestionIndex, timeOutID;
 let correctAnswers = 0;
@@ -64,9 +66,27 @@ function showLangIcon(answer) {
   }
 }
 
+function showCodeQuestion(question) {
+  // clear codeContainer class
+  preContainer.classList = "";
+  debugger;
+  switch (question?.programmingLang) {
+    case "javascript":
+      preContainer.classList.add("language-javascript");
+      codeContainer.innerText = question.question;
+      break;
+    case "java":
+      preContainer.classList.add("language-java");
+      codeContainer.innerText = question.question;
+      break;
+    default:
+      return;
+  }
+}
+
 function showQuestion(question, mazeInstance) {
   showLangIcon(question);
-  questionElement.innerText = question.question;
+  showCodeQuestion(question);
   question.answers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerText = answer.text;

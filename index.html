@@ -10,10 +10,12 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="prism.css">
   <link rel="icon" href="./assets/images/valcon-favicon.ico" sizes="192x192" />
   <title>Valcon Maze Game</title>
 
   <script src="https://kit.fontawesome.com/1fea2bc2bc.js" crossorigin="anonymous"></script>
+  <script src="prism.js"></script>
   <script src="js/script.js" type="module"></script>
   <script src="js/quiz.js" type="module"></script>
 </head>
@@ -52,10 +54,8 @@
         tačno odgovoriš na pitanje, zaradićeš bodove na osnovu kojih će tvoje
         znanje biti ocenjeno na kraju kviza.
 
-          <span
-            >Srećno u tvojoj avanturi u lavirintu i zabavi se učeći uz
-            kviz!</span
-          >
+        <span>Srećno u tvojoj avanturi u lavirintu i zabavi se učeći uz
+          kviz!</span>
       </p>
       <button class="btn explanation-button">start</button>
     </div>
@@ -89,7 +89,10 @@
     <div class="container slide-in-blurred-top" id="quiz-container">
       <div id="question-container">
         <i id="lang-icon" class="fab"></i>
-        <div id="question">Question</div>
+        <!-- <div id="question">Question</div> -->
+        <pre>
+          <code class="language-javascript"></code>
+        </pre>
         <div id="answer-buttons" class="btn-grid">
           <button class="btn">Answer 1</button>
           <button class="btn">Answer 2</button>
@@ -109,28 +112,18 @@
         <img src="assets/images/valcon-compressed.jpeg" alt="img" />
       </div>
       <div class="form-container">
-          <span class="title"
-            >Hello you, please fill the form and play the game</span
-          >
+        <span class="title">Hello you, please fill the form and play the game</span>
         <form id="form">
           <div class="form-control">
             <label for="name" class="label-input">Full name</label>
-              <input
-                type="text"
-                id="username"
-                name="name"
-                placeholder="Enter your name..." />
+            <input type="text" id="username" name="name" placeholder="Enter your name..." />
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
             <small>Error message</small>
           </div>
           <div class="form-control">
             <label for="email" class="label-input">Email address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email..." />
+            <input type="email" id="email" name="email" placeholder="Enter your email..." />
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
             <small>Error message</small>
