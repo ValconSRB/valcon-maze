@@ -67,20 +67,30 @@ function showLangIcon(answer) {
 }
 
 function showCodeQuestion(question) {
-  // clear codeContainer class
+  const { question: questionText, codeBlock, programmingLang } = question;
+
+  questionElement.innerText = "";
   preContainer.classList = "";
-  switch (question?.programmingLang) {
+
+  switch (programmingLang) {
     case "javascript":
       preContainer.classList.add("language-javascript");
-      codeContainer.innerText = question.question;
       break;
     case "java":
       preContainer.classList.add("language-java");
-      codeContainer.innerText = question.question;
       break;
     default:
-      return;
+      return (questionElement.innerText = questionText);
   }
+
+  if (codeBlock) {
+    preContainer.style.display = "flex";
+    codeContainer.innerText = codeBlock;
+  } else {
+    preContainer.style.display = "none";
+  }
+
+  questionElement.innerText = questionText;
 }
 
 function showQuestion(question, mazeInstance) {
@@ -192,10 +202,10 @@ const questions = [
   },
   {
     id: 2,
-    question: `Šta će biti rezultat izvršavanja koda?
-    static void main(String args[]) {
-        System.out.printin(this);
-    }`,
+    question: `Šta će biti rezultat izvršavanja koda?`,
+    codeBlock: `static void main(String args[]) {
+      System.out.printin(this);
+  }`,
     answers: [
       { text: "this", correct: false },
       { text: "Compile time error", correct: true },
@@ -228,9 +238,11 @@ const questions = [
   },
   {
     id: 5,
-    question: `Šta će ove dve komande ispisati? 
-        console.log(0.1 + 0.2);
-        console.log(0.1 + 0.2 == 0.3);`,
+    question: `Šta će ove dve komande ispisati?`,
+    codeBlock: `
+    console.log(0.1 + 0.2);
+    console.log(0.1 + 0.2 == 0.3);
+    `,
     answers: [
       {
         text: " 0.30000000000000004, false",
@@ -245,13 +257,13 @@ const questions = [
   },
   {
     id: 6,
-    question: `Koji je rezultat sledeće funkcije?
-        (function() {
-            console.log(1);
-            setTimeout(function(){console.log(2)}, 1000);
-            setTimeout(function(){console.log(3)}, 0);
-            console.log(4);
-        })();`,
+    question: `Koji je rezultat sledeće funkcije?`,
+    codeBlock: `(function() {
+      console.log(1);
+      setTimeout(function(){console.log(2)}, 1000);
+      setTimeout(function(){console.log(3)}, 0);
+      console.log(4);
+  })();`,
     answers: [
       {
         text: "1 3 2 4",
@@ -266,9 +278,10 @@ const questions = [
   },
   {
     id: 7,
-    question: `Šta ce biti ispisano nakon izvršenja ovih komandi?
-        console.log(false == '0')
-        console.log(false === '0')`,
+    question: `Šta ce biti ispisano nakon izvršenja ovih komandi?`,
+    codeBlock: `
+    console.log(false == '0');
+    console.log(false === '0');`,
     answers: [
       {
         text: "true, false",
@@ -283,8 +296,8 @@ const questions = [
   },
   {
     id: 8,
-    question: `Šta će biti ispisano na izlazu?
-        name = “Pera” ?? “Zika”;`,
+    question: `Šta će biti ispisano na izlazu?`,
+    codeBlock: `name = “Pera” ?? “Zika”;`,
     answers: [
       {
         text: "Pera",
@@ -299,10 +312,10 @@ const questions = [
   },
   {
     id: 9,
-    question: `Šta će biti ispisano na izlazu?
-        a = new int[] { 0, ‘0’ };
-        Console.WriteLine(a[0] + a[1]);
-    `,
+    question: `Šta će biti ispisano na izlazu?`,
+    codeBlock: `
+    a = new int[] { 0, ‘0’ };
+    Console.WriteLine(a[0] + a[1]);`,
     answers: [
       {
         text: "0",
@@ -317,15 +330,15 @@ const questions = [
   },
   {
     id: 10,
-    question: `Šta će biti ispisano na izlazu?
-        var zero = 0;
-        try{
-            System.out.println(42 / 0.0);
-            System.out.println(42.0 / 0);
-            System.out.println(42 / zero);
-        }catch (ArithmeticException e){
-            System.out.println("DivideByZeroException");
-        }`,
+    question: `Šta će biti ispisano na izlazu?`,
+    codeBlock: `var zero = 0;
+    try{
+        System.out.println(42 / 0.0);
+        System.out.println(42.0 / 0);
+        System.out.println(42 / zero);
+    }catch (ArithmeticException e){
+        System.out.println("DivideByZeroException");
+    }`,
     answers: [
       {
         text: `Infinity

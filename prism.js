@@ -1,5 +1,5 @@
 /* PrismJS 1.29.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+java&plugins=highlight-keywords+inline-color+normalize-whitespace+toolbar */
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+css-extras+java&plugins=inline-color+normalize-whitespace+toolbar */
 var _self =
     "undefined" != typeof window
       ? window
@@ -962,10 +962,6 @@ Prism.languages.clike = {
       },
     });
 })(Prism);
-"undefined" != typeof Prism &&
-  Prism.hooks.add("wrap", function (e) {
-    "keyword" === e.type && e.classes.push("keyword-" + e.content);
-  });
 !(function () {
   if ("undefined" != typeof Prism && "undefined" != typeof document) {
     var n =
