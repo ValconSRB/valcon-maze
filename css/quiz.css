@@ -27,6 +27,11 @@ div#overlay {
   transform: translate(-50%, -50%);
 }
 
+pre {
+  display: flex;
+  justify-content: center;
+}
+
 #lang-icon {
   font-size: 25px;
 }
