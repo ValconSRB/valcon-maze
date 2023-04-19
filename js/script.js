@@ -69,6 +69,15 @@ levels[0] = {
 };
 
 const isVisited = JSON.parse(sessionStorage.getItem("visited"));
+
+window.onload = function() {
+  if (isVisited) {
+    formContainer.style.display = "flex";
+    sessionStorage.clear();
+    location.reload();
+  }
+}
+
 if (!isVisited) {
   formContainer.style.display = "flex";
 } else {
