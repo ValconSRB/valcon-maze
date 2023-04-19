@@ -197,13 +197,3 @@ function startButtonHandler() {
 }
 
 explanationButton.addEventListener("click", startButtonHandler);
-
-const observer = new PerformanceObserver((list) => {
-  list.getEntries().forEach((entry) => {
-    if (entry.type === "reload") {
-      showExplanation(false);
-    }
-  });
-});
-
-observer.observe({ type: "navigation", buffered: true });
