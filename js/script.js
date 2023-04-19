@@ -69,6 +69,15 @@ levels[0] = {
 };
 
 const isVisited = JSON.parse(sessionStorage.getItem("visited"));
+
+window.onload = function() {
+  if (isVisited) {
+    formContainer.style.display = "flex";
+    sessionStorage.clear();
+    location.reload();
+  }
+}
+
 if (!isVisited) {
   formContainer.style.display = "flex";
 } else {
@@ -188,13 +197,3 @@ function startButtonHandler() {
 }
 
 explanationButton.addEventListener("click", startButtonHandler);
-
-const observer = new PerformanceObserver((list) => {
-  list.getEntries().forEach((entry) => {
-    if (entry.type === "reload") {
-      showExplanation(false);
-    }
-  });
-});
-
-observer.observe({ type: "navigation", buffered: true });
