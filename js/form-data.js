@@ -8,7 +8,7 @@ export function checkInputs() {
   let formCheck = true;
 
   if (usernameValue === "") {
-    setErrorFor(username, "Full name cannot be blank");
+    setErrorFor(username, "This cannot be blank");
     formCheck = false;
   } else {
     setSuccessFor(username);
