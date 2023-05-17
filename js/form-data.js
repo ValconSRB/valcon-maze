@@ -26,6 +26,7 @@ export function checkInputs() {
   return formCheck;
 }
 
+
 function setErrorFor(input, message) {
   const formControl = input.parentElement;
 
