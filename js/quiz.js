@@ -170,276 +170,240 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-  id: 1,
-  question: "Koja novosadska firma se pridružila Evropskoj grupaciji Valcon?",
-  answers: [
-    { text: "Hybrid IT", correct: true },
-    { text: "nQode", correct: false }
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 2,
-  question: "Kada je Hybrid IT promenio ime u Valcon?",
-  answers: [
-    { text: "2020", correct: false },
-    { text: "2023", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 3,
-  question: "Hybrid IT je organizovao kvizove za studente?",
-  answers: [
-    { text: "Tačno", correct: true },
-    { text: "Netačno", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 4,
-  question: "Valcon nije pet friendly?",
-  answers: [
-    { text: "Tačno", correct: false },
-    { text: "Netačno", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 5,
-  question: "Gde se nalazi Valcon u Novom Sadu?",
-  answers: [
-    { text: "Na Limanu 3", correct: false },
-    { text: "U Bazaru", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 6,
-  question: "Osim u Novom Sadu, imamo kancelariju i u:",
-  answers: [
-    { text: "Zrenjaninu", correct: false },
-    { text: "Beogradu", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 7,
-  question: "U Valconu trenutno ima: ",
-  answers: [
-    { text: "500 zaposlenih", correct: false },
-    { text: "200 zaposlenih", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 8,
-  question: "Omiljeni benefit Valkonovaca je:",
-  answers: [
-    { text: "Obezbeđen ručak", correct: true },
-    { text: "Fitpass", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 9,
-  question: "Valcon",
-  answers: [
-    { text: "je outsourcing kompanija", correct: true },
-    { text: "je product kompanija", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 10,
-  question: "Valcon ima svoj kafić.",
-  answers: [
-    { text: "Tačno", correct: true },
-    { text: "Netačno", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 11,
-  question: "Gde je sedište Valcona?",
-  answers: [
-    { text: "u Velikoj Britaniji", correct: false },
-    { text: "u Holandiji", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 12,
-  question: "Kako se zvao kviz za studente, koje je organizovao Hybrid IT?",
-  answers: [
-    { text: "Folk kviz", correct: false },
-    { text: "Treš kviz", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 13,
-  question: "Gde se nalazi nova kancelarija Valcona u Beogradu?",
-  answers: [
-    { text: "Skyline", correct: true },
-    { text: "Na Novom Beogradu", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 14,
-  question: "Gde je Valcon u januaru otvorio kancelariju?",
-  answers: [
-    { text: "Sarajevo", correct: false },
-    { text: "Banja Luka", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 15,
-  question: "Kako se zove kafić u Valconu?",
-  answers: [
-    { text: "Valcon caffe", correct: false },
-    { text: "Humanitarni kafić", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 16,
-  question: "Poslednji tim bilding je bio:",
-  answers: [
-    { text: "Rakijada", correct: true },
-    { text: "Rafting", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 17,
-  question: "Da li smo sportski orijentisani?",
-  answers: [
-    { text: "Nikako", correct: false },
-    { text: "Da", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 18,
-  question: "Koju rakiju pijemo u Valconu?",
-  answers: [
-    { text: "Šljivovica", correct: false },
-    { text: "Šamar", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 19,
-  question: "Terasa u NS kancu ima 300 kvadrata?",
-  answers: [
-    { text: "Da", correct: true },
-    { text: "Ne", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 20,
-  question: "Šta znači Valcon?",
-  answers: [
-    { text: "Value Consulting", correct: true },
-    { text: "Smart and creative individual", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 21,
-  question: "Valcon HR tim broji:",
-  answers: [
-    { text: "5 kolega", correct: true },
-    { text: "10 kolega", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 22,
-  question: "Na Kontehu smo posluživali: ",
-  answers: [
-    { text: "Pitu", correct: false },
-    { text: "Kafu", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 23,
-  question: "Da li imamo Valcon blend coffee?",
-  answers: [
-    { text: "Da", correct: true },
-    { text: "Ne", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 24,
-  question: "Da li Valcon ima svoje saune?",
-  answers: [
-    { text: "Da", correct: true },
-    { text: "Ne", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 25,
-  question: "Valcon nudi opciju remote rada?",
-  answers: [
-    { text: "Ne", correct: false },
-    { text: "Da", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 26,
-  question: "Valcon kancelarije uvek nude:",
-  answers: [
-    { text: "Sveže voće", correct: true },
-    { text: "Gotove cedjene sokove", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 27,
-  question: "Da li imamo četvorodnevno radno vreme:",
-  answers: [
-    { text: "Da", correct: false },
-    { text: "Ne", correct: true },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 28,
-  question: "Pored Mac opreme, naše kolege preferiraju i: ",
-  answers: [
-    { text: "Dell", correct: true },
-    { text: "hp", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 29,
-  question: "Da li smo ove godine organizovali karaoke žurku?",
-  answers: [
-    { text: "Da", correct: true },
-    { text: "Ne", correct: false },
-  ],
-  programmingLang: "valcon",
-},
-{
-  id: 30,
-  question: "Novogodišnja žurka održana je u: ",
-  answers: [
-    { text: "Magacinu", correct: false },
-    { text: "Pupinu", correct: true },
-  ],
-  programmingLang: "valcon",
-}
-]
+    id: 1,
+    question: "Koja novosadska firma se pridružila Evropskoj grupaciji Valcon?",
+    answers: [
+      { text: "Hybrid IT", correct: true },
+      { text: "nQode", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 2,
+    question: "Kada je Hybrid IT promenio ime u Valcon?",
+    answers: [
+      { text: "2020", correct: false },
+      { text: "2023", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 3,
+    question: "Hybrid IT je organizovao kvizove za studente?",
+    answers: [
+      { text: "Tačno", correct: true },
+      { text: "Netačno", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 4,
+    question: "Valcon nije pet friendly?",
+    answers: [
+      { text: "Tačno", correct: false },
+      { text: "Netačno", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 5,
+    question: "Gde se nalazi Valcon u Novom Sadu?",
+    answers: [
+      { text: "Na Limanu 3", correct: false },
+      { text: "U Bazaru", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 6,
+    question: "Osim u Novom Sadu, imamo kancelariju i u:",
+    answers: [
+      { text: "Zrenjaninu", correct: false },
+      { text: "Beogradu", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 7,
+    question: "U Valconu trenutno ima: ",
+    answers: [
+      { text: "500 zaposlenih", correct: false },
+      { text: "200 zaposlenih", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 8,
+    question: "Omiljeni benefit Valkonovaca je:",
+    answers: [
+      { text: "Obezbeđen ručak", correct: true },
+      { text: "Fitpass", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 9,
+    question: "Valcon",
+    answers: [
+      { text: "je outsourcing kompanija", correct: true },
+      { text: "je product kompanija", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 10,
+    question: "Valcon ima svoj kafić.",
+    answers: [
+      { text: "Tačno", correct: true },
+      { text: "Netačno", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 11,
+    question: "Gde je sedište Valcona?",
+    answers: [
+      { text: "u Velikoj Britaniji", correct: false },
+      { text: "u Holandiji", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 12,
+    question: "Kako se zvao kviz za studente, koje je organizovao Hybrid IT?",
+    answers: [
+      { text: "Folk kviz", correct: false },
+      { text: "Treš kviz", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 13,
+    question: "Gde je Valcon u januaru otvorio kancelariju?",
+    answers: [
+      { text: "Sarajevo", correct: false },
+      { text: "Banja Luka", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 14,
+    question: "Kako se zove kafić u Valconu?",
+    answers: [
+      { text: "Valcon caffe", correct: false },
+      { text: "Humanitarni kafić", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 15,
+    question: "Poslednji tim bilding je bio:",
+    answers: [
+      { text: "Rakijada", correct: true },
+      { text: "Rafting", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 16,
+    question: "Da li smo sportski orijentisani?",
+    answers: [
+      { text: "Nikako", correct: false },
+      { text: "Da", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 17,
+    question: "Koju rakiju pijemo u Valconu?",
+    answers: [
+      { text: "Šljivovica", correct: false },
+      { text: "Šamar", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 18,
+    question: "Terasa u NS kancu ima 300 kvadrata?",
+    answers: [
+      { text: "Da", correct: true },
+      { text: "Ne", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 19,
+    question: "Šta znači Valcon?",
+    answers: [
+      { text: "Value Consulting", correct: true },
+      { text: "Smart and creative individual", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 20,
+    question: "Na Kontehu smo posluživali: ",
+    answers: [
+      { text: "Pitu", correct: false },
+      { text: "Kafu", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 21,
+    question: "Da li imamo Valcon blend coffee?",
+    answers: [
+      { text: "Da", correct: true },
+      { text: "Ne", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 22,
+    question: "Da li Valcon ima svoje saune?",
+    answers: [
+      { text: "Da", correct: true },
+      { text: "Ne", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 23,
+    question: "Valcon kancelarije uvek nude:",
+    answers: [
+      { text: "Sveže voće", correct: true },
+      { text: "Gotove cedjene sokove", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 24,
+    question: "Pored Mac opreme, naše kolege preferiraju i: ",
+    answers: [
+      { text: "Dell", correct: true },
+      { text: "hp", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 25,
+    question: "Da li smo ove godine organizovali karaoke žurku?",
+    answers: [
+      { text: "Da", correct: true },
+      { text: "Ne", correct: false },
+    ],
+    programmingLang: "valcon",
+  },
+  {
+    id: 26,
+    question: "Novogodišnja žurka održana je u: ",
+    answers: [
+      { text: "Magacinu", correct: false },
+      { text: "Pupinu", correct: true },
+    ],
+    programmingLang: "valcon",
+  },
+];
 
 const questionsTech = [
   {
